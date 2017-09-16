@@ -18,15 +18,6 @@ const data = [
 ];
 
 const AppCtrl = ($scope) => {
-  $scope.formData = {
-    sendEmail: false,
-    team: '',
-    employee: '',
-  };
-
-  $scope.teams = data.map(v => v.team);
-  $scope.employees = [];
-
   const filterEmployees = () => {
     const group = data.find(g => g.team.toLowerCase() === $scope.formData.team.toLowerCase());
 
@@ -37,6 +28,16 @@ const AppCtrl = ($scope) => {
 
     $scope.employees = group.employees;
   };
+
+  $scope.formData = {
+    sendEmail: false,
+    team: '',
+    employee: '',
+  };
+
+  $scope.teams = data.map(v => v.team);
+  $scope.employees = [];
+  $scope.dialogOpen = true;
 
   $scope.teamOnBlur = (form) => {
     filterEmployees();
@@ -60,8 +61,6 @@ const AppCtrl = ($scope) => {
 
     return true;
   };
-
-  $scope.dialogOpen = true;
 
   $scope.accept = () => {
     $scope.dialogOpen = false;
