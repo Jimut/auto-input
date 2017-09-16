@@ -9,7 +9,15 @@ const AutoInput = () => ({
     blur: '&ngBlur',
   },
   link($scope, $elm, $attr, $ctrl) {
-    $scope.search = v => new RegExp($scope.key, 'i').test(v);
+    $scope.search = (v) => {
+      const index = v.search(new RegExp($scope.key, 'i'));
+
+      if (index === 0) {
+        return true;
+      }
+
+      return false;
+    };
 
     $scope.selectAsKey = (value) => {
       $scope.key = value;
