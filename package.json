@@ -1,0 +1,32 @@
+{
+  "name": "autocomplete-input",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp"
+  },
+  "author": "Jimut Dhali <jemdhali67@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "browser-sync": "^2.18.13",
+    "del": "^3.0.0",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^3.1.0",
+    "run-sequence": "^2.1.0",
+    "webpack": "^3.5.6",
+    "webpack-stream": "^4.0.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.6"
+  }
+}

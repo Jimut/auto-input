@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+  <meta charset="utf-8">
+  <title>Autocomplete Input</title>
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-controller="AppCtrl">
+  <div class="container" ng-cloak>
+    <p>Send Email: {{ formData.sendEmail }}</p>
+    <p>Team: {{ formData.team }}</p>
+    <p>Employee: {{ formData.employee }}</p>
+  </div>
+
+  <div class="dialog" ng-if="dialogOpen">
+    <div class="dialog__title">Select an Employee</div>
+
+    <div class="form" ng-form="form">
+      <div class="form__control">
+        <label>
+          <input type="checkbox" ng-model="formData.sendEmail"> Send welcome email to employee
+        </label>
+      </div>
+
+      <div class="form__control">
+        <label>Select a Team in the Organization</label>
+        <auto-input name="team" placeholder="Select Team" values="teams" ng-model="formData.team" ng-blur="teamOnBlur(form)"></auto-input>
+        <div ng-show="form.team.$invalid" class="error" ng-cloak>
+          <span ng-show="form.team.$error.presentInList">Please select a valid team</span>
+        </div>
+      </div>
+
+      <div class="form__control">
+        <label>Select an Employee</label>
+        <auto-input name="employee" placeholder="Select Employee" values="employees" ng-model="formData.employee"></auto-input>
+        <div ng-show="form.employee.$invalid" class="error" ng-cloak>
+          <div ng-show="form.employee.$error.presentInList">Please select a valid employee</div>
+        </div>
+      </div>
+
+      <div class="dialog__action">
+        <button type="button" class="btn btn-secondary" ng-click="reject()">Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click="accept()" ng-disabled="!isValid(form)">OK</button>
+      </div>
+    </div>
+
+    <button type="button" class="dialog__close" ng-click="reject()">&times;</div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
